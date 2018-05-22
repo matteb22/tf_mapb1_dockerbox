@@ -1,4 +1,4 @@
-resource "aws_instance" "mbottini-webserver-1" {
+resource "aws_instance" "mbottini-dockerbox" {
   ami = "ami-43a15f3e"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
@@ -16,9 +16,6 @@ resource "aws_instance" "mbottini-webserver-1" {
     type     = "ssh"
     user     = "ubuntu"
     private_key = "${file(var.my_private_key_path)}"
-    #host     = "${aws_instance.mbottini-webserver-1.public_ip}"
-    #timeout  = "10m"
-    #agent    = "false"
   }
 
   provisioner "file" {
@@ -87,5 +84,5 @@ resource "aws_security_group" "allow_all" {
 }
 
 output "public_ip" {
-  value = "${aws_instance.mbottini-webserver-1.public_ip}"
+  value = "${aws_instance.mbottini-dockerbox.*.public_ip}"
 }
