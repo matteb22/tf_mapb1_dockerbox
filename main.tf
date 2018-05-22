@@ -8,7 +8,8 @@ resource "aws_instance" "mbottini-dockerbox" {
   count = "4"
 
   tags {
-    Name = "mbottini-dockerbox"
+    Name = "mbottini-dockerbox-${count.index+1}"
+    #Name = "${var.instance_name}-${count.index+1}"
   }
 
 
