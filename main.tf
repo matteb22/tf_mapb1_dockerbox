@@ -5,7 +5,7 @@ resource "aws_instance" "mbottini-dockerbox" {
   availability_zone = "us-east-1a"
   subnet_id = "${aws_subnet.us-east-1a.id}"
   associate_public_ip_address = true
-  count = "3"
+  count = "4"
 
   tags {
     Name = "mbottini-dockerbox"
