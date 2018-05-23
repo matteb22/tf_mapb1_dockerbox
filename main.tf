@@ -87,3 +87,11 @@ resource "aws_security_group" "allow_all" {
 output "public_ip" {
   value = "${aws_instance.mbottini-dockerbox.*.public_ip}"
 }
+
+output "private_dns" {
+  value = "${aws_instance.mbottini-dockerbox.*.private_dns}"
+}
+
+output "private_ip" {
+  value = "${aws_instance.mbottini-dockerbox.*.private_ip}"
+}
